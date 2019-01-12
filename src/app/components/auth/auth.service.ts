@@ -64,10 +64,6 @@ export class AuthService {
   }
 
   testMe() {
-
-    const headersWithAuthentication = new HttpHeaders()
-    .set('Authorization', 'Bearer ' + localStorage.getItem('token'));
-
-    return this.httpClient.get('http://localhost:8080/api/magazine/getAll', {headers: headersWithAuthentication});
+    return this.httpClient.get('http://localhost:8080/api/magazine/getAll', {headers: headers});
   }
 }

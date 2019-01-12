@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { MagazinesComponent } from './components/magazines/magazines.component';
 import { MagazinesService } from './components/magazines/magazines.service';
 import { SearchScientificPaperComponent } from './components/search-scientific-paper/search-scientific-paper.component';
 import { SearchService } from './components/search-scientific-paper/search.service';
+import { AuthInterceptor } from './components/auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,17 @@ import { SearchService } from './components/search-scientific-paper/search.servi
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [MagazinesService, SearchService, AuthService, AuthGuard],
+  providers: [
+    MagazinesService,
+    SearchService,
+    AuthService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

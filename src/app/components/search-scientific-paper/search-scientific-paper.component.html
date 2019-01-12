@@ -152,10 +152,10 @@
             <tbody>
               <tr *ngFor="let sp of scientificPapers">
                 <td>{{sp.magazine}}</td>
-                <td>{{sp.title}}</td>
+                <td> <div [innerHtml]="sp.title"></div> </td>
                 <td>{{sp.author}}</td>
-                <td>{{sp.keywords}}</td>
-                <td> <div [innerHtml]="sp.pdfText"></div></td>
+                <td> <div [innerHtml]="sp.keywords"></div> </td>
+                <td> <div [innerHtml]="sp.pdfText"></div> </td>
                 <td>{{sp.scientificArea}}</td>
               </tr>
             </tbody>
