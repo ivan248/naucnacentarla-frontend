@@ -41,4 +41,9 @@ export class SearchService {
     return this.httpClient
     .get(this.url + '/moreLikeThis/' + id);
   }
+
+  searchByGeoPoint(lat : string, lon : string) {
+    return this.httpClient
+    .get(this.url + '/geoPoint/' + lat + '/' + lon)
+  }
 }

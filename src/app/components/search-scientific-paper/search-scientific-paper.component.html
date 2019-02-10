@@ -160,7 +160,7 @@
                 <td> <div [innerHtml]="sp.keywords"></div> </td>
                 <td> <div style="width:100%;overflow:scroll;height:70px;line-height:70px;" [innerHtml]="sp.pdfText"></div> </td>
                 <td style="text-align: center;" >{{sp.scientificArea}}</td>
-                <td> <button class="btn btn-info" style="width: 100%" (click)="geoSearch(sp.title)"> Geo search </button>
+                <td> <button class="btn btn-info" style="width: 100%" (click)="geoSearch(sp.location)"> Geo search </button>
                      <button class="btn btn-warning" style="width: 100%" (click)="moreLikeThis(sp.id)"> More like this </button> </td>
                 <td> <button *ngIf="i<2" class="btn btn-primary" style="width: 100%" (click)="download(sp.title)"> Download </button>
                   <button *ngIf="i>=2" class="btn btn-success" style="width: 100%" (click)="buy(sp.title)"> Buy </button> </td>

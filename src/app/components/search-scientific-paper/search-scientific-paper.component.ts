@@ -12,6 +12,7 @@ export class SearchScientificPaperComponent implements OnInit {
   scientificPapers : any;
   magazine : String;
   moreLikeThisData : any;
+  geoPointData : any;
 
   constructor(private searchService:SearchService) { }
 
@@ -189,8 +190,20 @@ export class SearchScientificPaperComponent implements OnInit {
 
     moreLikeThis(id : string) {
       this.searchService.searchByMoreLikeThis(id).subscribe(data => {
+        console.log('MoreLikeThis results: ');
         console.log(data);
         this.moreLikeThisData = data;
-      })
+      });
+    }
+    
+    geoSearch(location : any) {
+      console.log(location);
+      console.log(location['lat']);
+      console.log(location.lon);
+      this.searchService.searchByGeoPoint(location['lat'], location['lon']).subscribe(data => {
+        console.log('GeoSearch results: ');
+        console.log(data);
+        this.geoPointData = data;
+      });
     }
 }
