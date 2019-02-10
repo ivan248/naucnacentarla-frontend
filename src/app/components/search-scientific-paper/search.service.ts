@@ -27,5 +27,18 @@ export class SearchService {
 
     return this.httpClient
     .post(this.url + '/multipleOptionalFields', body);
+  }m
+
+  downloadPdf(title : string) {
+
+    let titleStrippedOfHTML = title.replace(/<(?:.|\n)*?>/gm, '');
+    let finalTitleWithUnderscoreInsteadOfSpace = titleStrippedOfHTML.replace(' ', '_');
+    
+    window.open('http://localhost:8080/api/downloadPdf/' + finalTitleWithUnderscoreInsteadOfSpace);
+  }
+
+  searchByMoreLikeThis(id : string) {
+    return this.httpClient
+    .get(this.url + '/moreLikeThis/' + id);
   }
 }

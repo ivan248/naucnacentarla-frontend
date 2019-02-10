@@ -141,22 +141,29 @@
       <table class="table table-hover table-bordered">
           <thead>
               <tr>
-                <th class="col-md-2">Magazine</th>
-                <th class="col-md-2">Title</th>
-                <th class="col-md-2">Author</th>
-                <th class="col-md-2">Keywords</th>
-                <th class="col-md-2">Content</th>
-                <th class="col-md-2">Scientific area</th>
+                <th class="col-md-1">Magazine</th>
+                <th class="col-md-1">Title</th>
+                <th class="col-md-1">Author</th>
+                <th class="col-md-1">Keywords</th>
+                <th style="text-align: center;" class="col-md-4">Content</th>
+                <th style="text-align: center;" class="col-md-2">Scientific area</th>
+                <th class="col-md-1">Geo/More like this</th>
+                <th class="col-md-1">Download/Pay</th>
+
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let sp of scientificPapers">
+              <tr *ngFor="let sp of scientificPapers; let i = index">
                 <td>{{sp.magazine}}</td>
                 <td> <div [innerHtml]="sp.title"></div> </td>
                 <td>{{sp.author}}</td>
                 <td> <div [innerHtml]="sp.keywords"></div> </td>
-                <td> <div [innerHtml]="sp.pdfText"></div> </td>
-                <td>{{sp.scientificArea}}</td>
+                <td> <div style="width:100%;overflow:scroll;height:70px;line-height:70px;" [innerHtml]="sp.pdfText"></div> </td>
+                <td style="text-align: center;" >{{sp.scientificArea}}</td>
+                <td> <button class="btn btn-info" style="width: 100%" (click)="geoSearch(sp.title)"> Geo search </button>
+                     <button class="btn btn-warning" style="width: 100%" (click)="moreLikeThis(sp.id)"> More like this </button> </td>
+                <td> <button *ngIf="i<2" class="btn btn-primary" style="width: 100%" (click)="download(sp.title)"> Download </button>
+                  <button *ngIf="i>=2" class="btn btn-success" style="width: 100%" (click)="buy(sp.title)"> Buy </button> </td>
               </tr>
             </tbody>
       </table>

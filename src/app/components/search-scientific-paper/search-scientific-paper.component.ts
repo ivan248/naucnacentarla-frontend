@@ -11,6 +11,7 @@ export class SearchScientificPaperComponent implements OnInit {
 
   scientificPapers : any;
   magazine : String;
+  moreLikeThisData : any;
 
   constructor(private searchService:SearchService) { }
 
@@ -161,6 +162,12 @@ export class SearchScientificPaperComponent implements OnInit {
 
         }
 
+        
+
+        if(json === "}") {
+          json = "{}";
+        }
+
         console.log(json);
 
         this.searchService.searchByMultipleOptionalFields(json)
@@ -170,5 +177,20 @@ export class SearchScientificPaperComponent implements OnInit {
         });
       
 
+    }
+
+    download(title : string) {
+      this.searchService.downloadPdf(title);
+    }
+
+    buy(title: string) {
+      alert('Raise all payment servers to buy magazine: ' + title + ' !');
+    }
+
+    moreLikeThis(id : string) {
+      this.searchService.searchByMoreLikeThis(id).subscribe(data => {
+        console.log(data);
+        this.moreLikeThisData = data;
+      })
     }
 }
