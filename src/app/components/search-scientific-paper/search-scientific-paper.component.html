@@ -181,7 +181,7 @@
                 <th class="col-md-1">Keywords</th>
                 <th style="text-align: center;" class="col-md-4">Content</th>
                 <th style="text-align: center;" class="col-md-2">Scientific area</th>
-                <th class="col-md-1">Geo/More like this</th>
+                <th class="col-md-1">Reviewers</th>
                 <th class="col-md-1">Download/Pay</th>
 
               </tr>
@@ -194,7 +194,7 @@
                 <td> <div [innerHtml]="sp.keywords"></div> </td>
                 <td> <div style="width:100%;overflow:scroll;height:70px;line-height:70px;" [innerHtml]="sp.pdfText"></div> </td>
                 <td style="text-align: center;" >{{sp.scientificArea}}</td>
-                <td> </td>
+                <td> <div *ngFor="let r of sp.reviewers"> <p> {{r.firstName}} {{r.lastName}}   </p>  </div> </td>
                 <td> <button *ngIf="sp.price === 0" class="btn btn-primary" style="width: 100%" (click)="download(sp.title)"> Download </button>
                   <button *ngIf="sp.price !== 0" class="btn btn-success" style="width: 100%" (click)="buy(sp.title)"> Buy </button> </td>
               </tr>

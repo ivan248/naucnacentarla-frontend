@@ -21,4 +21,11 @@ export class MagazinesComponent implements OnInit {
       error => console.log(error));
   }
 
+  publishPaper(magazineId : string) {
+    this.magazinesService.startPublishProcess(magazineId)
+    .subscribe( data => {
+      console.log(data)
+    });
+  }
+
 }

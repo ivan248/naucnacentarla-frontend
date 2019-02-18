@@ -11,4 +11,9 @@ export class MagazinesService {
   getAll() {
     return this.httpClient.get(this.url + '/getAll');
   }
+
+  startPublishProcess(magazineId : string) {
+    return this.httpClient.get(this.url + '/' + magazineId);
+  }
+  
 }

@@ -199,12 +199,12 @@ export class SearchScientificPaperComponent implements OnInit {
     geoSearch(location : any, id : string) {
       this.searchService.searchByGeoPoint(location['lat'], location['lon']).subscribe(data => {
         console.log('GeoSearch results: ');
-        console.log(data);
         this.geoPointData = data;
 
-        this.geoPointData.splice(this.geoPointData.findIndex(function(i){
-          return i.id === id;
-        }), 1);
+        // this.geoPointData.splice(this.geoPointData.findIndex(function(i){
+        //   return i.id === id;
+        // }), 1);
+        console.log(this.geoPointData);
 
       });
     }

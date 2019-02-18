@@ -17,6 +17,9 @@ import { MagazinesService } from './components/magazines/magazines.service';
 import { SearchScientificPaperComponent } from './components/search-scientific-paper/search-scientific-paper.component';
 import { SearchService } from './components/search-scientific-paper/search.service';
 import { AuthInterceptor } from './components/auth/auth.interceptor';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { TasksService } from './components/tasks/tasks.service';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { AuthInterceptor } from './components/auth/auth.interceptor';
     SigninComponent,
     SignupComponent,
     MagazinesComponent,
-    SearchScientificPaperComponent
+    SearchScientificPaperComponent,
+    TasksComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +43,7 @@ import { AuthInterceptor } from './components/auth/auth.interceptor';
   providers: [
     MagazinesService,
     SearchService,
+    TasksService,
     AuthService,
     AuthGuard,
     {
