@@ -19,5 +19,9 @@ export class TasksService {
   executeTask(formValue : any, taskId: string): any {
     return this.httpClient.post(this.url + '/executeTask/' + taskId, formValue);
   }
+
+  executeTaskReviewers(formValue : any, taskId: string): any {
+    return this.httpClient.post(this.url + '/executeTaskReviewers/' + taskId, formValue);
+  }
   
 }
