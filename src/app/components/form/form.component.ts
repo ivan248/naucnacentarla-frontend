@@ -51,6 +51,7 @@ export class FormComponent implements OnInit {
       .subscribe( (res: any) => {
         console.log('Succesfully executed executeTaskReviewers.');
         console.log(res);
+        this.router.navigate(['/tasks']);
       });
   }
 
